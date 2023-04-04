@@ -1,1 +1,2 @@
-# AngularCENTROSUR
+# Angular CENTROSUR
+### Autores:
