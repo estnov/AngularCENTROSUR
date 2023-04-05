@@ -7,10 +7,12 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+  error: boolean = false;
+  
   constructor() { }
 
   ngOnInit() {
-    
+
   }
 
   
