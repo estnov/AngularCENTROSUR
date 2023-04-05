@@ -33,6 +33,7 @@ export class AuthService {
       })
     );
   }
+  
   xmlStringToJson(xml: string)
   {
     // Convert the XML string to an XML Document.
