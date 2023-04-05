@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,18 +12,19 @@ export class LoginComponent {
   usuario: string = "";
   password: string = "";
 
-  constructor() { }
+  constructor(public auth: AuthService) { }
 
   ngOnInit() {
 
   }
 
   async loggin() {
-    if(false){
+    this.usuario = (<HTMLInputElement>document.getElementById("usuario")).value;
+    this.password = (<HTMLInputElement>document.getElementById("password")).value;
+    console.log("Usuario: " + this.usuario);
 
-    } else{
-      this.error = true;
-    }
+    //this.error=
+    this.error=true;
 
   }
 
