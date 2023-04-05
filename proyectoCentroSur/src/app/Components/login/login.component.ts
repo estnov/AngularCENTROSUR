@@ -8,10 +8,21 @@ import { Component } from '@angular/core';
 export class LoginComponent {
 
   error: boolean = false;
-  
+  usuario: string = "";
+  password: string = "";
+
   constructor() { }
 
   ngOnInit() {
+
+  }
+
+  async loggin() {
+    if(false){
+
+    } else{
+      this.error = true;
+    }
 
   }
 
