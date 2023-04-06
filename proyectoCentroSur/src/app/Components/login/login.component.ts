@@ -10,7 +10,9 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent {
 
-  error: boolean = false;
+  errorUsuario: boolean = false;
+  errorPassword: boolean = false;
+  errorConexion: boolean = false;
   usuario: string = "";
   s: string = "";
   username: string = "";
@@ -25,11 +27,7 @@ export class LoginComponent {
   async loggin() {
     this.usuario = (<HTMLInputElement>document.getElementById("usuario")).value;
     this.password = (<HTMLInputElement>document.getElementById("password")).value;
-    console.log("Usuario: " + this.usuario);
-
-    //this.error=
-    this.error=true;
-
+    console.log(this.auth.postLogin(this.usuario, this.password));
   }
 
   
