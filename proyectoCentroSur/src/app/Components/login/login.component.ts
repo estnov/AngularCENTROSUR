@@ -23,7 +23,7 @@ export class LoginComponent {
   async loggin() {
     this.usuario = (<HTMLInputElement>document.getElementById("usuario")).value;
     this.password = (<HTMLInputElement>document.getElementById("password")).value;
-    console.log(this.auth.login(this.usuario, this.password));
+    console.log(this.auth.postLogin(this.usuario, this.password));
   }
 
   
