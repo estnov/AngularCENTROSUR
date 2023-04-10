@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.development';
 import { catchError, map } from 'rxjs';
-import { HttpHeaders } from '@angular/common/http';
 
 
 @Injectable({
@@ -125,7 +124,7 @@ export class AuthService {
 
 
 
-  postLogin(username : String, password : String) {
+  /*postLogin(username : String, password : String) {
     let parser = new DOMParser();
     let xmlString = '<?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:sap-com:document:sap:rfc:functions">  <soapenv:Header/>   <soapenv:Body><urn:ZISUWM_WEB_LOGIN><PASSWORD>Israel123</PASSWORD><USUARIO>ADMIN</USUARIO></urn:ZISUWM_WEB_LOGIN></soapenv:Body> </soapenv:Envelope>';
     
@@ -147,7 +146,7 @@ export class AuthService {
         console.log(err);
       });
     });
-  }
+  }*/
 
 
 
