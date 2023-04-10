@@ -5,6 +5,8 @@ import { BOrdenesComponent } from './Components/b-ordenes/b-ordenes.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
+  { path: 'error', component: LoginComponent },
+  { path: 'error-conn', component: LoginComponent },
   { path: 'ordenes', component: BOrdenesComponent },
 ];
 

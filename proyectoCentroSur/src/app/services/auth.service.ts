@@ -9,7 +9,8 @@ import { catchError, map } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-
+  
+  errorPassword: boolean = false;
   
   constructor(private http: HttpClient, private router: Router) { 
 
@@ -50,11 +51,12 @@ export class AuthService {
       console.log(tipo);
 
       if(nombre!=''){
-        this.router.navigate(['/', 'ordenes'])
+        this.router.navigate(['/', 'ordenes']);
+        localStorage.setItem('nombre','');
       } else {
-        alert("Usuario y/o contraseña incorrectos");
+        this.errorPassword = true;
+        this.router.navigate(['/', 'error'])      
       }
-
     });
   }
 

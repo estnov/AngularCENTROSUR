@@ -5,9 +5,8 @@
 		<div class="card-text">
 		<h3 class="card-title text-center">Bienvenido</h3>
 			
-    <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorUsuario">Usuario no encontrado.</div> 
-    <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorPassword">Contraseña incorrecta.</div> 
-    <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorConexion">Error de conexión</div> 
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorPassword">Usuario o contraseña incorrecta.</div> 
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorConexion">No ha iniciado sesión</div> 
 			<form>
 				<!-- to error: add class "has-danger" -->
 				<div class="form-group">
