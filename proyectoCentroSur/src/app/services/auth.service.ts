@@ -134,27 +134,31 @@ export class AuthService {
 
 
   post(){
-    const soapUrl = 'http://p16isudessap2.cisnergia.gob.ec:8010/sap/bc/srt/rfc/sap/zws_web_login/110/zws_web_login/zws_web_login';
-    const xml = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:sap-com:document:sap:rfc:functions">
-    <soapenv:Header/>
-    <soapenv:Body>
-       <urn:ZISUWM_WEB_LOGIN>
-          <PASSWORD>Israel123</PASSWORD>
-          <USUARIO>ADMIN</USUARIO>
-       </urn:ZISUWM_WEB_LOGIN>
-    </soapenv:Body>
- </soapenv:Envelope>`;
+    //const soapUrl = 'http://p16isudessap2.cisnergia.gob.ec:8010/sap/bc/srt/rfc/sap/zws_web_login/110/zws_web_login/zws_web_login';
+    const soapUrl = 'api/post/json';
+    const xml = `<?xml version="1.0" encoding="utf-8"?>
+    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:sap-com:document:sap:rfc:functions">
+       <soapenv:Header/>
+       <soapenv:Body>
+          <urn:ZISUWM_WEB_LOGIN>
+             <PASSWORD>Pruebas.2023</PASSWORD>
+             <USUARIO>0107216194-A</USUARIO>
+          </urn:ZISUWM_WEB_LOGIN>
+       </soapenv:Body>
+    </soapenv:Envelope>`;
 
- console.log(xml);
 
     const headers = new HttpHeaders({
       'Content-Type': 'text/xml',
       'charset': 'utf-8'
     });
 
-    //console.log(this.http.post(soapUrl, xml, { headers: headers, responseType: 'text' }));
+    console.log(xml);
     this.http.post(soapUrl, xml, { headers: headers, responseType: 'text' }).subscribe(response => {
       console.log(response);
+      let json = this.xmlStringToJson(response.toString());
+      console.log(json);
+      console.log(json['soapenv:Envelope']['soapenv:Body']);
     });
   }
 

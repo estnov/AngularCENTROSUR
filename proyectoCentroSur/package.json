@@ -23,6 +23,7 @@
     "@ng-bootstrap/ng-bootstrap": "^14.1.0",
     "@ng-bootstrap/schematics": "^2.0.0-alpha.1",
     "bootstrap": "^4.0.0",
+    "ngx-soap": "^0.7.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"

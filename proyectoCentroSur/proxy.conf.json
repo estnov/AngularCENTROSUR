@@ -1,11 +1,15 @@
 
 {
     "/api": {
-      "target": "http://p15isudessap1.cisnergia.gob.ec:8000/sap/bc/srt/rfc/sap/zws_web_login/110/zws_web_login/zws_web_login",
+      "target": "http://p38sapisu02qa.cisnergia.gob.ec:8010/sap/bc/srt/rfc/sap/zws_web_login/310/zws_web_login/zws_web_login",
       "secure": true,
       "changeOrigin": true,
-      "pathRewrite": {
-        "^/api": "http://localhost:4200"
-      }
+      "loglevel": "debug"
+    },
+    "/listado": {
+      "target": "http://p38sapisu02qa.cisnergia.gob.ec:8010/sap/bc/srt/rfc/sap/zws_web_login/310/zws_web_login/zws_web_login",
+      "secure": true,
+      "changeOrigin": true,
+      "loglevel": "debug"
     }
   }
