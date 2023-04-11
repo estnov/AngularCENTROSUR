@@ -52,7 +52,10 @@ export class AuthService {
 
       if(nombre!=''){
         this.router.navigate(['/', 'ordenes']);
-        localStorage.setItem('nombre','');
+        localStorage.setItem('nombre',''+nombre);
+        localStorage.setItem('tipo',''+tipo);
+        localStorage.setItem('user',''+user);
+        localStorage.setItem('password',''+password);
       } else {
         this.errorPassword = true;
         this.router.navigate(['/', 'error'])      
