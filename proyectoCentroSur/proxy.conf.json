@@ -7,7 +7,7 @@
       "loglevel": "debug"
     },
     "/listado": {
-      "target": "",
+      "target": "http://p37sapisu01qa.cisnergia.gob.ec:8000/sap/bc/srt/rfc/sap/zws_get_ordenes/310/zws_get_ordenes/zws_get_ordenes",
       "secure": true,
       "changeOrigin": true,
       "loglevel": "debug"
