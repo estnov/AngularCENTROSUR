@@ -77,7 +77,6 @@ export class ListService {
       'charset': 'utf-8'
     });
 
-    console.log(xml);
     this.http.post(soapUrl, xml, { headers: headers, responseType: 'text' }).subscribe(response => {
       console.log(response);
       let json = this.xmlStringToJson(response.toString());

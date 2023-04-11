@@ -17,11 +17,10 @@ export class BOrdenesComponent {
   dataSource:any = array;
 
   constructor(private router: Router, private list : ListService) {
-    console.log(localStorage.getItem('nombre'))
+    
     if(localStorage.getItem('nombre')==null){
       this.router.navigate(['/', 'error-conn'])  
     }
-    console.log(localStorage.getItem('password'))
 
     this.list.list();
   }

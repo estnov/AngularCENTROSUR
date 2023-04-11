@@ -34,7 +34,8 @@ export class AuthService {
 
     const headers = new HttpHeaders({
       'Content-Type': 'text/xml',
-      'charset': 'utf-8'
+      'charset': 'utf-8',
+      'Authorization': 'Basic ' + btoa('jperalta:Jfps.4095')
     });
 
     console.log(xml);
