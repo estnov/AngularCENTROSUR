@@ -20,6 +20,7 @@ export class BOrdenesComponent {
     if(localStorage.getItem('nombre')==null){
       this.router.navigate(['/', 'error-conn'])  
     }
+    console.log(localStorage.getItem('password'))
   }
 
 }
