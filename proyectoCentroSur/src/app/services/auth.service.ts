@@ -16,74 +16,6 @@ export class AuthService {
   }
 
 
-  login(username: string, password: string){
-
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'Authorization': 'Basic ' + btoa('jperalta:Jfps.4095')
-      })
-
-    };
-  
-
-    let url = "http://p15isudessap1.cisnergia.gob.ec:8000/sap/bc/srt/wsdl/flv_10002A111AD1/srvc_url/sap/bc/srt/rfc/sap/zws_web_login/110/zws_web_login/zws_web_login?sap-client=110"
-
-    const headers = { 'Authorization': 'Bearer my-token', 'My-Custom-Header': 'foobar' };
-
-    const body = { title: 'Angular POST Request Example' };
-
-    
-/*
-    //Tipo de servicio SOAP (viene en XLM)
-
-    this.http.post(url, {responseType: 'text', headers: httpOptions.headers})
-    .pipe(
-      map((xmlString: string)=>{
-        const asJson = this.xmlStringToJson(xmlString);
-        return asJson;
-      }),
-      catchError((err)=> {
-        console.warn('INT ERR:', err);
-        return err;     
-      })
-    );*/
-  }
-
-  postLogin(username : String, password : String) {
-
-    //Credenciales:
-    //Usuario: ADMIN
-    //Password: Israel123
-
-    let url = "http://p16isudessap2.cisnergia.gob.ec:8010/sap/bc/srt/rfc/sap/zws_web_login/110/zws_web_login/zws_web_login"
-
-    let parser = new DOMParser();
-    let xmlString = '<?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:sap-com:document:sap:rfc:functions">  <soapenv:Header/>   <soapenv:Body><urn:ZISUWM_WEB_LOGIN><PASSWORD>'+password+'</PASSWORD><USUARIO>'+username+'</USUARIO></urn:ZISUWM_WEB_LOGIN></soapenv:Body> </soapenv:Envelope>';
-    
-    let doc = parser.parseFromString(xmlString, "application/xml");
-    console.log(doc);
-
-    let headers = new HttpHeaders()
-      .set('Content-Type', 'text/xml')
-      .set('charset', 'utf-8')    
-      ;
-
-    //console.log(this.http.post('http://p15isudessap1.cisnergia.gob.ec:8000/sap/bc/srt/rfc/sap/zws_web_login/110/zws_web_login/zws_web_login', doc, { headers: headers, responseType: 'text' }));
-
-    
-    return new Promise(resolve => {
-      this.http.post(url, doc, {headers: headers, responseType: 'text' }).subscribe(data => {
-        resolve(data);
-        console.log(data);
-        console.log(this.xmlStringToJson(data.toString()));
-      }, err => {
-        console.log(err);
-      });
-    });
-
-  }
-
   
   xmlStringToJson(xml: string)
   {
@@ -133,8 +65,7 @@ export class AuthService {
   }
 
 
-  post(){
-    //const soapUrl = 'http://p16isudessap2.cisnergia.gob.ec:8010/sap/bc/srt/rfc/sap/zws_web_login/110/zws_web_login/zws_web_login';
+  post(user: string, password: string){
     const soapUrl = 'api/post/json';
     const xml = `<?xml version="1.0" encoding="utf-8"?>
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:sap-com:document:sap:rfc:functions">
