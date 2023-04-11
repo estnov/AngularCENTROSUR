@@ -60,15 +60,15 @@ export class ListService {
 
   list(){
     const soapUrl = 'listado/post/json';
-    const xml = `<?xml version="1.0" encoding="utf-8"?>
-    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:sap-com:document:sap:rfc:functions">
-       <soapenv:Header/>
-       <soapenv:Body>
-          <urn:ZISUWM_WEB_LOGIN>
-             <PASSWORD>Pruebas.2023</PASSWORD>
-             <USUARIO>0107216194-A</USUARIO>
-          </urn:ZISUWM_WEB_LOGIN>
-       </soapenv:Body>
+    const xml = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:sap-com:document:sap:rfc:functions">
+        <soapenv:Header/>
+        <soapenv:Body>
+          <urn:ZISUWM_GET_ORDENES>
+              <ESTADO>01</ESTADO>
+              <PASSWORD>Pruebas.2023</PASSWORD>
+              <USUARIO>0107216194-A</USUARIO>
+          </urn:ZISUWM_GET_ORDENES>
+        </soapenv:Body>
     </soapenv:Envelope>`;
 
 
@@ -82,7 +82,6 @@ export class ListService {
       console.log(response);
       let json = this.xmlStringToJson(response.toString());
       console.log(json);
-      console.log(json['soapenv:Envelope']['soapenv:Body']);
     });
   }
 

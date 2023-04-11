@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ListService } from 'src/app/services/list.service';
 
 const array: any[]=[]
 
@@ -15,12 +16,14 @@ export class BOrdenesComponent {
                                 , 'Distrito', 'Calle y No.', 'Ver', 'Modificar'];
   dataSource:any = array;
 
-  constructor(private router: Router){
+  constructor(private router: Router, private list : ListService) {
     console.log(localStorage.getItem('nombre'))
     if(localStorage.getItem('nombre')==null){
       this.router.navigate(['/', 'error-conn'])  
     }
     console.log(localStorage.getItem('password'))
+
+    this.list.list();
   }
 
 }
