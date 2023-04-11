@@ -65,8 +65,8 @@ export class ListService {
         <soapenv:Body>
           <urn:ZISUWM_GET_ORDENES>
               <ESTADO>01</ESTADO>
-              <PASSWORD>Pruebas.2023</PASSWORD>
-              <USUARIO>0107216194-A</USUARIO>
+              <PASSWORD>`+localStorage.getItem('password')+`</PASSWORD>
+              <USUARIO>`+localStorage.getItem('user')+`</USUARIO>
           </urn:ZISUWM_GET_ORDENES>
         </soapenv:Body>
     </soapenv:Envelope>`;
