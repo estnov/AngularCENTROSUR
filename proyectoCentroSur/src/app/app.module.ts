@@ -13,6 +13,7 @@ import { BOrdenesComponent } from './Components/b-ordenes/b-ordenes.component';
 import {MatTableModule} from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatMenuModule} from '@angular/material/menu';
+import { ModificarComponent } from './Components/modificar/modificar.component';
 
 
 
@@ -20,7 +21,8 @@ import {MatMenuModule} from '@angular/material/menu';
   declarations: [
     AppComponent,
     LoginComponent,
-    BOrdenesComponent
+    BOrdenesComponent,
+    ModificarComponent
   ],
   imports: [
     BrowserModule,
