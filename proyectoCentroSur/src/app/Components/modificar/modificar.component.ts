@@ -7,6 +7,7 @@ import { ModifyService } from 'src/app/services/modify.service';
   styleUrls: ['./modificar.component.scss']
 })
 export class ModificarComponent {
+  orden = localStorage.getItem('orden');
 
   constructor(private modify: ModifyService) { }
 
