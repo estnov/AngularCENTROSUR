@@ -1,11 +1,13 @@
 .demo-table {
     width: 100%;
+    color:black;
 }
   
 .mat-mdc-row .mat-mdc-cell {
     border-bottom: 1px solid transparent;
     border-top: 1px solid transparent;
     cursor: pointer;
+    color:black
 }
   
 .mat-mdc-row:hover .mat-mdc-cell {
@@ -26,4 +28,13 @@ img:hover{
     width: 25px;
     height: 25px;
     justify-content: center;
+}
+
+.tablePrinc{
+    background-color: whitesmoke;
+    color: black;
+}
+
+.block{
+    color:black;
 }
