@@ -13,7 +13,7 @@ const array: any[]=[]
 
 export class BOrdenesComponent {
   displayedColumns: string[] = ['No. Orden', 'CI. Orden', 'Actividad PM', 'MRU-Security', 'P. Trabajo. Res.', 'Fecha Inicio', 'Canton'
-                                , 'Distrito', 'Calle y No.', 'Ver', 'Modificar'];
+                                , 'Distrito', 'Calle y No.', 'Modificar'];
   
   //public ordenes: Orden[]=[];
   dataSource:any = array;
