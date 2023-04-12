@@ -38,18 +38,14 @@ export class AuthService {
       'Authorization': 'Basic ' + btoa('jperalta:Jfps.4095')
     });
 
-    console.log(xml);
     this.http.post(soapUrl, xml, { headers: headers, responseType: 'text' }).subscribe(response => {
-      console.log(response);
+      
       const parser = new DOMParser();
       const xmlDoc = parser.parseFromString(response, 'text/xml');
 
       // Retrieve the user attributes
       const nombre = xmlDoc.getElementsByTagName('NOMBRE')[0].textContent;
       const tipo = xmlDoc.getElementsByTagName('TIPO')[0].textContent;
-
-      console.log(nombre); 
-      console.log(tipo);
 
       if(nombre!=''){
         this.router.navigate(['/', 'ordenes']);

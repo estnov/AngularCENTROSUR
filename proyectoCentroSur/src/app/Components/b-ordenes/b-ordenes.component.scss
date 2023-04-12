@@ -15,8 +15,15 @@
 .demo-row-is-clicked {
     font-weight: bold;
 }
+
 img{
     width: 20px;
     height: 20px;
     justify-content: center;
-  }
+}
+
+img:hover{
+    width: 25px;
+    height: 25px;
+    justify-content: center;
+}

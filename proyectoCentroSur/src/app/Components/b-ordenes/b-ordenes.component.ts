@@ -49,10 +49,8 @@ export class BOrdenesComponent {
         };
 
         items.push(item);
-        console.log(item.numOrden);
       }
       this.dataSource = items;
-      console.log(items);
       
     });
   }
