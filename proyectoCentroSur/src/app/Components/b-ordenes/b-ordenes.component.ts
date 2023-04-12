@@ -55,4 +55,8 @@ export class BOrdenesComponent {
     });
   }
 
+  modificar(orden:string){
+    console.log("Orden: "+orden);
+  }
+
 }
