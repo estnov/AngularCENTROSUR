@@ -14,7 +14,7 @@ export class ModifyService {
     const xml = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:sap-com:document:sap:rfc:functions">
         <soapenv:Header/>
         <soapenv:Body>
-          <urn:ZISUWM_MODIFICAR>
+          <urn:ZISU_WS_COT>
               <ACTIVIDAD>`+actividad+`</ACTIVIDAD>
               <COD_CIERRE>`+codCierre+`</COD_CIERRE>
               <COD_GRUPO>`+codGrupo+`</COD_GRUPO>
@@ -26,7 +26,7 @@ export class ModifyService {
               <INGRESADO_POR>`+ingresadoPor+`</INGRESADO_POR>
               <OBSERVACION>`+observacion+`</OBSERVACION>
               <ORDEN>`+orden+`</ORDEN>
-          </urn:ZISUWM_MODIFICAR>
+          </urn:ZISU_WS_COT>
         </soapenv:Body>
     </soapenv:Envelope>`;
 
