@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ListService } from 'src/app/services/list.service';
+import { ModificarComponent } from '../modificar/modificar.component';
 
 const array: any[]=[]
 
@@ -19,7 +21,7 @@ export class BOrdenesComponent {
   dataSource:any = array;
   
 
-  constructor(private router: Router, private list : ListService) {
+  constructor(private router: Router, private list : ListService, public dialog: MatDialog) {
     if(localStorage.getItem('nombre')==null){
       this.router.navigate(['/', 'error-conn'])  
     }
@@ -57,6 +59,8 @@ export class BOrdenesComponent {
 
   modificar(orden:string){
     console.log("Orden: "+orden);
+    localStorage.setItem('orden', orden);
+    this.dialog.open(ModificarComponent);
   }
 
 }

@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatMenuModule} from '@angular/material/menu';
 import { ModificarComponent } from './Components/modificar/modificar.component';
 
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ModificarComponent } from './Components/modificar/modificar.component';
     NgbModule,
     BrowserAnimationsModule,
     MatTableModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
