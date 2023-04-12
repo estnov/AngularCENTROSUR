@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ModifyService } from 'src/app/services/modify.service';
 
 @Component({
   selector: 'app-modificar',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./modificar.component.scss']
 })
 export class ModificarComponent {
+
+  constructor(private modify: ModifyService) { }
+
+  ngOnInit() {
+  }
+
+  async modificar(){
+    //this.modify.mod();
+  }
 
 }
