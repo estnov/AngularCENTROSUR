@@ -17,12 +17,27 @@ export class BOrdenesComponent {
   dataSource:any = array;
 
   constructor(private router: Router, private list : ListService) {
-    
     if(localStorage.getItem('nombre')==null){
       this.router.navigate(['/', 'error-conn'])  
     }
+    this.listar();
+  }
 
-    this.list.list();
+  async listar(){
+    this.list.list().subscribe(response => {
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(response, 'text/xml');
+
+      // Retrieve the user attributes
+      let items: any=[];
+
+      for (let i = 0; i < xmlDoc.getElementsByTagName('item').length; i++) {
+        console.log(xmlDoc.getElementsByTagName('item')[i]);
+        items.push(xmlDoc.getElementsByTagName('item')[i]);
+      }
+      console.log(items);
+      
+    });
   }
 
 }
