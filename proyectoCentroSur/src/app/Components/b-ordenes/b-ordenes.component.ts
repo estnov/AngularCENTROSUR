@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ListService } from 'src/app/services/list.service';
 import { ModificarComponent } from '../modificar/modificar.component';
@@ -58,9 +58,16 @@ export class BOrdenesComponent {
   }
 
   modificar(orden:string){
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
     console.log("Orden: "+orden);
     localStorage.setItem('orden', orden);
-    this.dialog.open(ModificarComponent);
+
+
+    this.dialog.open(ModificarComponent, dialogConfig);
   }
 
 }
