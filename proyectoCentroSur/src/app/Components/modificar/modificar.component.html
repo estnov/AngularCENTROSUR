@@ -1,60 +1,66 @@
 
 <body  style="background-color: rgba(55, 149, 193, 0.723);">
-    <form class="formu" style="background-color: white; margin: 15px; padding: 15px;">
-        <p>
-            <label>No. Orden</label>
-            <input class="controls" type="text" name="orden" id="orden" disabled [(ngModel)]="orden">
-        </p>
-        <p>
-            <label>Actividad</label>
-            <input class="controls" type="text" name="actividad" id="actividad">
-        </p>
-        <p>
-            <label>Contrato</label>
-            <input class="controls" type="text" name="contrato" id="contrato">
-        </p>
-        <p>
-            <label>Cod. Cierre</label>
-            <input class="controls" type="text" name="cierre" id="cierre">
-        </p>
-        <p>
-            <label>Cod. Grupo</label>
-            <input class="controls" type="text" name="grupo" id="grupo">
-        </p>
-        <p>
-            <label>Ejecutado Por:</label>
-            <input class="controls" type="text" name="ejecutado" id="ejecutado">
-        </p>
-        <p>
-            <label>Fecha Ejecución</label>
-            <input class="controls" type="text" name="ejecucion" id="ejecucion">
-        </p>
-        <p>
-            <label>Hora Inicio</label>
-            <input class="controls" type="text" name="inicio" id="inicio">
-        </p>
-        <p>
-            <label>Hora Finalización</label>
-            <input class="controls" type="text" name="fin" id="fin">
-        </p>
-        <p>
-            <label>Ingresado por</label>
-            <input class="controls" type="text" name="ingresado" id="ingresado">
-        </p>
-        <p>
-            <label>Observación</label>
-            <textarea class="controls" matInput></textarea>
-        </p>
-        <p>
+    <mat-dialog-content>
+        <form class="formu" style="background-color: white; margin: 15px; padding: 15px;">
+            <p>
+                <label style="color:black">No. Orden</label>
+                <input class="controls" type="text" name="orden" id="orden" disabled [(ngModel)]="orden">
+            </p>
+            <p>
+                <label style="color:black">Actividad</label>
+                <input class="controls" type="text" name="actividad" id="actividad">
+            </p>
+            <p>
+                <label style="color:black">Contrato</label>
+                <input class="controls" type="text" name="contrato" id="contrato">
+            </p>
+            <p>
+                <label style="color:black">Cod. Cierre</label>
+                <input class="controls" type="text" name="cierre" id="cierre">
+            </p>
+            <p>
+                <label style="color:black">Cod. Grupo</label>
+                <input class="controls" type="text" name="grupo" id="grupo">
+            </p>
+            <p>
+                <label style="color:black">Ejecutado Por:</label>
+                <input class="controls" type="text" name="ejecutado" id="ejecutado">
+            </p>
+            <p>
+                <label style="color:black">Fecha Ejecución</label>
+                <input class="controls" type="text" name="ejecucion" id="ejecucion">
+            </p>
+            <p>
+                <label style="color:black">Hora Inicio</label>
+                <input class="controls" type="text" name="inicio" id="inicio">
+            </p>
+            <p>
+                <label style="color:black">Hora Finalización</label>
+                <input class="controls" type="text" name="fin" id="fin">
+            </p>
+            <p>
+                <label style="color:black">Ingresado por</label>
+                <input class="controls" type="text" name="ingresado" id="ingresado">
+            </p>
+            
+            <p>
+                <label style="color:black; vertical-align: top;">Observaciones:</label>
+                <textarea class="controls" matInput></textarea>
+            </p>
+        </form>
+        
+        <form class="formu" style=" margin: 15px; padding: 15px; place-items: center;">
+                
+            <div mat-dialog-actions>
+                <button mat-raised-button color="warn" mat-dialog-close style="justify-content: center" >CERRAR</button>
+            </div>
 
-        </p>
+            <div mat-dialog-actions>
+                <button mat-raised-button color="accent">GUARDAR</button>
+            </div>
+        </form>
     
-        <div mat-dialog-actions>
-            <button mat-raised-button color="warn" mat-dialog-close>CERRAR</button>
-        </div>
 
-        <div mat-dialog-actions>
-            <button mat-raised-button color="accent">GUARDAR</button>
-        </div>
-    </form>
+    </mat-dialog-content>
+    
 </body>
