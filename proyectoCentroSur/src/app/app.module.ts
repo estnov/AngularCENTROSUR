@@ -16,6 +16,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { ModificarComponent } from './Components/modificar/modificar.component';
 
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     BrowserAnimationsModule,
     MatTableModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
