@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { ModifyService } from 'src/app/services/modify.service';
 
 @Component({
@@ -22,7 +23,7 @@ export class ModificarComponent {
 
   orden = localStorage.getItem('orden');
 
-  constructor(private modify: ModifyService) { }
+  constructor(private modify: ModifyService, private dialogRef: MatDialogRef<ModificarComponent>) { }
 
   ngOnInit() {
   }
@@ -48,5 +49,10 @@ export class ModificarComponent {
     this.dateEnd_selected = yyyy + '-' + this.add_zero_date(mm) + '-' + this.add_zero_date(dd);
     this.dateStart_selected = yyyy + '-' + this.add_zero_date(mm) + '-' + this.add_zero_date(dd);
     this.date_current = yyyy + '-' + this.add_zero_date(mm) + '-' + this.add_zero_date(dd);
+  }
+
+  save(){
+    alert("Datos guardados");
+    this.dialogRef.close();
   }
 }
