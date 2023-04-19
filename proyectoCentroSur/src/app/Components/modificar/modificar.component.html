@@ -29,7 +29,7 @@
             <p>
                 <label style="color:black">Fecha Ejecución</label>
                 <mat-form-field>
-                    <input matInput placeholder="Fecha Ejecucion" [matDatepicker]="picker" (focus)="picker.open()" readonly [(ngModel)]="dateStart_selected" max="{{date_current}}">
+                    <input matInput placeholder="Fecha Ejecucion" [matDatepicker]="picker" (focus)="picker.open()" readonly [(ngModel)]="dateStart_selected" max="{{date_current}}" style="background-color: white; color: black;">
                 </mat-form-field>
                 <mat-datepicker #picker></mat-datepicker>
             </p>
