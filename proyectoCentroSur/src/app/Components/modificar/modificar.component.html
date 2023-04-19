@@ -35,11 +35,13 @@
             </p>
             <p>
                 <label style="color:black">Hora Inicio</label>
-                <input class="controls" type="text" name="inicio" id="inicio" [(ngModel)]="hora_inicio">
+                <!--<input class="controls" type="text" name="inicio" id="inicio" [(ngModel)]="hora_inicio">-->
+                <input type="time" id="appt" name="appt" min="00:00" max="23:59" required>
             </p>
             <p>
                 <label style="color:black">Hora Finalización</label>
-                <input class="controls" type="text" name="fin" id="fin" [(ngModel)]="hora_fin">
+                <!--<input class="controls" type="text" name="fin" id="fin" [(ngModel)]="hora_fin">-->
+                <input type="time" id="appt" name="appt" min="00:00" max="23:59" required>
             </p>
             <p>
                 <label style="color:black">Ingresado por</label>
