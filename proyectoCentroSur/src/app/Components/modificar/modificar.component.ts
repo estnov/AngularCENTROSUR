@@ -11,6 +11,14 @@ export class ModificarComponent {
   public dateStart_selected:any;
   public dateEnd_selected:any;
   public date_current:any;
+  public actividad: string = '';
+  public contrato: string = '';
+  public cod_cierre: string = '';
+  public cod_grupo: string = '';
+  public hora_inicio: string = '';
+  public hora_fin: string = '';
+  public ingresado: string = '';
+  public observaciones: string = '';
 
   orden = localStorage.getItem('orden');
 

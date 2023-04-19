@@ -4,51 +4,51 @@
         <form class="formu" style="background-color: white; margin: 15px; padding: 15px;">
             <p>
                 <label style="color:black">No. Orden</label>
-                <input class="controls" type="text" name="orden" id="orden" disabled [(ngModel)]="orden">
+                <input class="controls" type="text" name="orden" id="orden" disabled [(ngModel)]="orden" >
             </p>
             <p>
                 <label style="color:black">Actividad</label>
-                <input class="controls" type="text" name="actividad" id="actividad">
+                <input class="controls" type="text" name="actividad" id="actividad" [(ngModel)]="actividad">
             </p>
             <p>
                 <label style="color:black">Contrato</label>
-                <input class="controls" type="text" name="contrato" id="contrato">
+                <input class="controls" type="text" name="contrato" id="contrato" [(ngModel)]="contrato">
             </p>
             <p>
                 <label style="color:black">Cod. Cierre</label>
-                <input class="controls" type="text" name="cierre" id="cierre">
+                <input class="controls" type="text" name="cierre" id="cierre" [(ngModel)]="cod_cierre">
             </p>
             <p>
                 <label style="color:black">Cod. Grupo</label>
-                <input class="controls" type="text" name="grupo" id="grupo">
+                <input class="controls" type="text" name="grupo" id="grupo" [(ngModel)]="cod_grupo">
             </p>
             <p>
                 <label style="color:black">Ejecutado Por:</label>
-                <input class="controls" type="text" name="ejecutado" id="ejecutado">
+                <input class="controls" type="text" name="ejecutado" id="ejecutado" [(ngModel)]="cod_grupo">
             </p>
             <p>
                 <label style="color:black">Fecha Ejecución</label>
                 <mat-form-field>
-                    <input matInput placeholder="Fecha Ejecucion" [matDatepicker]="picker" (focus)="picker.open()" readonly [(ngModel)]="dateStart_selected" max="{{date_current}}" style="background-color: white; color: black;">
+                    <input matInput placeholder="Fecha Ejecucion" [matDatepicker]="picker" (focus)="picker.open()" readonly [(ngModel)]="dateStart_selected" max="{{date_current}}" name="dateStart">
                 </mat-form-field>
                 <mat-datepicker #picker></mat-datepicker>
             </p>
             <p>
                 <label style="color:black">Hora Inicio</label>
-                <input class="controls" type="text" name="inicio" id="inicio">
+                <input class="controls" type="text" name="inicio" id="inicio" [(ngModel)]="hora_inicio">
             </p>
             <p>
                 <label style="color:black">Hora Finalización</label>
-                <input class="controls" type="text" name="fin" id="fin">
+                <input class="controls" type="text" name="fin" id="fin" [(ngModel)]="hora_fin">
             </p>
             <p>
                 <label style="color:black">Ingresado por</label>
-                <input class="controls" type="text" name="ingresado" id="ingresado">
+                <input class="controls" type="text" name="ingresado" id="ingresado" [(ngModel)]="ingresado">
             </p>
             
             <p>
                 <label style="color:black; vertical-align: top;">Observaciones:</label>
-                <textarea class="controls" matInput></textarea>
+                <textarea class="controls" name="observaciones" matInput [(ngModel)]="observaciones"></textarea>
             </p>
         </form>
         
