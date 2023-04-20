@@ -32,7 +32,6 @@ export class BOrdenesComponent {
     this.list.list().subscribe(response => {
       const parser = new DOMParser();
 
-      console.log(response)
       const xmlDoc = parser.parseFromString(response, 'text/xml');
 
       // Retrieve the user attributes
@@ -56,11 +55,6 @@ export class BOrdenesComponent {
       }
       this.dataSource = items;
 
-      if(this.dataSource == 0){
-        console.log("no hay nada pra mostrar xD")
-      }
-
-      console.log("------->",this.dataSource)
       
     });
   }

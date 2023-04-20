@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 export class ModifyService {
   
 
-  constructor(private http: HttpClient, private router: Router, public snackBar: MatSnackBar) { }
+  constructor(private http: HttpClient, private router: Router, public snackBar: MatSnackBar,private location: Location) { }
 
   mod(actividad: string, codCierre: string, codGrupo: string, contrato: string, ejecutadoPor: string, feEjecucion: string, horFin: string, horInicio: string, ingresadoPor: string, observacion: string, orden: string) {
     const soapUrl = 'modificar/post/json';
@@ -37,19 +38,18 @@ export class ModifyService {
       'charset': 'utf-8'
     });
 
-    console.log(xml);
     this.http.post(soapUrl, xml, { headers: headers, responseType: 'text' }).subscribe(
       (data) => {
-        console.log(data);
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(data, 'text/xml');
 
         // Retrieve the user attributes
         const mensaje = xmlDoc.getElementsByTagName('MENSAJERES')[0].textContent;
-        this.snackBar.open(mensaje+'', '', {
-          duration: 5000,
+        const snackBarRef = this.snackBar.open(mensaje+'', 'Cerrar');
+        snackBarRef.afterDismissed().subscribe(() => {
+          window.location.reload();
         });
-        this.router.navigate(['/ordenes']);
+        
       },
       (error) => {
         console.log(error);
