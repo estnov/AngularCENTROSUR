@@ -24,7 +24,7 @@
             </p>
             <p>
                 <label style="color:black">Ejecutado Por:</label>
-                <input class="controls" type="text" name="ejecutado" id="ejecutado" [(ngModel)]="cod_grupo">
+                <input class="controls" type="text" name="ejecutado" id="ejecutado" [(ngModel)]="ejecutado_por">
             </p>
             <p>
                 <label style="color:black">Fecha Ejecución</label>
@@ -36,12 +36,12 @@
             <p>
                 <label style="color:black">Hora Inicio</label>
                 <!--<input class="controls" type="text" name="inicio" id="inicio" [(ngModel)]="hora_inicio">-->
-                <input type="time" id="appt" name="appt" min="00:00" max="23:59" required>
+                <input type="time" id="appt" name="appt" min="00:00" max="23:59" required [(ngModel)]="hora_inicio">
             </p>
             <p>
                 <label style="color:black">Hora Finalización</label>
                 <!--<input class="controls" type="text" name="fin" id="fin" [(ngModel)]="hora_fin">-->
-                <input type="time" id="appt" name="appt" min="00:00" max="23:59" required>
+                <input type="time" id="appt" name="appt" min="00:00" max="23:59" required [(ngModel)]="hora_fin">
             </p>
             <p>
                 <label style="color:black">Ingresado por</label>

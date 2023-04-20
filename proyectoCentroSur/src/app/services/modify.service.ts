@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 export class ModifyService {
   
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, public snackBar: MatSnackBar) { }
 
   mod(actividad: string, codCierre: string, codGrupo: string, contrato: string, ejecutadoPor: string, feEjecucion: string, horFin: string, horInicio: string, ingresadoPor: string, observacion: string, orden: string) {
     const soapUrl = 'modificar/post/json';
@@ -36,10 +37,19 @@ export class ModifyService {
       'charset': 'utf-8'
     });
 
+    console.log(xml);
     this.http.post(soapUrl, xml, { headers: headers, responseType: 'text' }).subscribe(
       (data) => {
         console.log(data);
-        this.router.navigate(['/listado']);
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(data, 'text/xml');
+
+        // Retrieve the user attributes
+        const mensaje = xmlDoc.getElementsByTagName('MENSAJERES')[0].textContent;
+        this.snackBar.open(mensaje+'', '', {
+          duration: 5000,
+        });
+        this.router.navigate(['/ordenes']);
       },
       (error) => {
         console.log(error);
