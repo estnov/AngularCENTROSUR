@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ModifyService } from 'src/app/services/modify.service';
 import { formatDate } from '@angular/common';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-modificar',
@@ -25,7 +26,7 @@ export class ModificarComponent {
 
   public orden = localStorage.getItem('orden');
 
-  constructor(private modify: ModifyService, private dialogRef: MatDialogRef<ModificarComponent>) { }
+  constructor(private modify: ModifyService, private dialogRef: MatDialogRef<ModificarComponent>, public snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
