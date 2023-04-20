@@ -7,13 +7,13 @@
       "loglevel": "debug"
     },
     "/listado": {
-      "target": "http://172.30.132.45:8000/sap/bc/srt/rfc/sap/zws_get_ordenes/310/zws_get_ordenes/zws_get_ordenes",
+      "target": "http://p8sapisu01r.redenergia.gob.ec:8010/sap/bc/srt/rfc/sap/zws_get_ordenes/310/zws_get_ordenes/zws_get_ordenes",
       "secure": true,
       "changeOrigin": true,
       "loglevel": "debug"
     },
     "/modificar": {
-      "target": "http://p16isudessap2.cisnergia.gob.ec:8010/sap/bc/srt/rfc/sap/zws_get_ordenes/110/zws_get_ordenes/zws_get_ordenes",
+      "target": "http://p8sapisu01r.redenergia.gob.ec:8010/sap/bc/srt/rfc/sap/zws_ws_cot/310/zws_ws_cot/zws_ws_cot",
       "secure": true,
       "changeOrigin": true,
       "loglevel": "debug"

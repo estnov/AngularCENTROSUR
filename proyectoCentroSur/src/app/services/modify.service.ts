@@ -36,10 +36,17 @@ export class ModifyService {
       'charset': 'utf-8'
     });
 
+    console.log(xml);
     this.http.post(soapUrl, xml, { headers: headers, responseType: 'text' }).subscribe(
       (data) => {
         console.log(data);
-        this.router.navigate(['/listado']);
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(data, 'text/xml');
+
+        // Retrieve the user attributes
+        const mensaje = xmlDoc.getElementsByTagName('MENSAJERES')[0].textContent;
+        alert(mensaje);
+        this.router.navigate(['/ordenes']);
       },
       (error) => {
         console.log(error);
