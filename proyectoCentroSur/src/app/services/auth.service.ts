@@ -34,8 +34,7 @@ export class AuthService {
 
     const headers = new HttpHeaders({
       'Content-Type': 'text/xml',
-      'charset': 'utf-8',
-      'Authorization': 'Basic ' + btoa('jperalta:Jfps.4095')
+      'charset': 'utf-8'
     });
 
     this.http.post(soapUrl, xml, { headers: headers, responseType: 'text' }).subscribe(response => {

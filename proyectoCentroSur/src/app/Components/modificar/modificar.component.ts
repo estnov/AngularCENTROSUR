@@ -53,6 +53,7 @@ export class ModificarComponent {
 
   save(){
     alert("Datos guardados");
+    //this.modify.mod(this.actividad, this.cod_cierre, this.cod_grupo, this.contrato, this.ingresado, this.date_current, this.hora_fin, this.hora_inicio, this.ingresado, this.observaciones, this.orden);
     this.dialogRef.close();
   }
 }
