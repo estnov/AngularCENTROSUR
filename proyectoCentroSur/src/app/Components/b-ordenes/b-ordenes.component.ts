@@ -64,8 +64,7 @@ export class BOrdenesComponent {
 
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-
-    console.log("Orden: "+orden);
+    dialogConfig.width = "80%";
     localStorage.setItem('orden', orden);
 
 
