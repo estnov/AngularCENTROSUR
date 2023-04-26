@@ -19,6 +19,9 @@ export class BOrdenesComponent {
   
   //public ordenes: Orden[]=[];
   dataSource:any = array;
+
+  search:String =""
+  option:String = ""
   
 
   constructor(private router: Router, private list : ListService, public dialog: MatDialog) {
