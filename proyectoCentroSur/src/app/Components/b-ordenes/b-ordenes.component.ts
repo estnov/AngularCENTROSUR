@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ChangeDetectorRef  } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ListService } from 'src/app/services/list.service';
@@ -21,6 +21,7 @@ export class BOrdenesComponent {
   
   //public ordenes: Orden[]=[];
   dataSource:any = array;
+  dataFiltered:any = array;
 
   search:String =""
   option:String = "No. Orden"
@@ -32,7 +33,8 @@ export class BOrdenesComponent {
   pageEvent!: PageEvent;
   
 
-  constructor(private router: Router, private list : ListService, public dialog: MatDialog) {
+  constructor(private router: Router, private list : ListService, public dialog: MatDialog
+    ,private cdr: ChangeDetectorRef) {
     if(localStorage.getItem('nombre')==null){
       this.router.navigate(['/', 'error-conn'])  
     }
@@ -99,4 +101,28 @@ export class BOrdenesComponent {
     this.dialog.open(ModificarComponent, dialogConfig);
   }
 
+  shouldHide(data: any): boolean {
+    switch (this.option) {
+      case 'No. Orden':
+        return data.numOrden.includes(this.search);
+      case 'CI. Orden':
+        return data.ciOrden.includes(this.search);
+      case 'Actividad PM':
+        return data.actividad.includes(this.search);
+      case 'MRU-Security':
+        return data.mru.includes(this.search);
+      case 'P. Trabajo. Res.':
+        return data.pTrabajo.includes(this.search);
+      case 'Fecha Inicio':
+        return data.fechaInic.includes(this.search);
+      case 'Canton':
+        return data.canton.includes(this.search);
+      case 'Distrito':
+        return data.distrito.includes(this.search);
+      case 'Calle y No.':
+        return data.calleNum.includes(this.search);
+      default:
+        return true;
+    }
+  }
 }
