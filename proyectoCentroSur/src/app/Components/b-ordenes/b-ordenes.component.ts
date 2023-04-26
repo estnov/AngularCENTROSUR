@@ -20,7 +20,10 @@ export class BOrdenesComponent {
   element: any;
 @Input() data:any;
   displayedColumns: string[] = ['No. Orden', 'CI. Orden', 'Actividad PM', 'MRU-Security', 'P. Trabajo. Res.', 'Fecha Inicio', 'Canton'
-                                , 'Distrito', 'Calle y No.', 'Modificar'];
+                              , 'Distrito', 'Calle y No.', 'Modificar'];
+
+  searchOptions: string[] = ['No. Orden', 'CI. Orden', 'Actividad PM', 'MRU-Security', 'P. Trabajo. Res.', 'Fecha Inicio', 'Canton'
+                                , 'Distrito', 'Calle y No.'];
   
   //public ordenes: Orden[]=[];
   dataSource:any = array;
@@ -107,23 +110,23 @@ export class BOrdenesComponent {
   shouldHide(data: any): boolean {
     switch (this.option) {
       case 'No. Orden':
-        return data.numOrden.includes(this.search);
+        return !data.numOrden.includes(this.search);
       case 'CI. Orden':
-        return data.ciOrden.includes(this.search);
+        return !data.ciOrden.includes(this.search);
       case 'Actividad PM':
-        return data.actividad.includes(this.search);
+        return !data.actividad.includes(this.search);
       case 'MRU-Security':
-        return data.mru.includes(this.search);
+        return !data.mru.includes(this.search);
       case 'P. Trabajo. Res.':
-        return data.pTrabajo.includes(this.search);
+        return !data.pTrabajo.includes(this.search);
       case 'Fecha Inicio':
-        return data.fechaInic.includes(this.search);
+        return !data.fechaInic.includes(this.search);
       case 'Canton':
-        return data.canton.includes(this.search);
+        return !data.canton.includes(this.search);
       case 'Distrito':
-        return data.distrito.includes(this.search);
+        return !data.distrito.includes(this.search);
       case 'Calle y No.':
-        return data.calleNum.includes(this.search);
+        return !data.calleNum.includes(this.search);
       default:
         return true;
     }

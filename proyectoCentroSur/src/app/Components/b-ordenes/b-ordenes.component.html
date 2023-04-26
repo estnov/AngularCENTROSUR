@@ -4,7 +4,7 @@
   </mat-form-field>
   <mat-form-field style="padding-left: 15px;background-color: white;" appearance="outline">
     <mat-select [(ngModel)]="option">
-      <mat-option *ngFor="let element of displayedColumns" [value]="element">
+      <mat-option *ngFor="let element of searchOptions" [value]="element">
         {{ element }}
       </mat-option>
     </mat-select>
