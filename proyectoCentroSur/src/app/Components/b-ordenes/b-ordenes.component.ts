@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ListService } from 'src/app/services/list.service';
 import { ModificarComponent } from '../modificar/modificar.component';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 
 const array: any[]=[]
 
@@ -43,7 +44,7 @@ export class BOrdenesComponent {
   load_data_table_pagination(data:any) {
     this.displayedColumns  = ['No. Orden', 'CI. Orden', 'Actividad PM', 'MRU-Security', 'P. Trabajo. Res.', 'Fecha Inicio', 'Canton'
     , 'Distrito', 'Calle y No.', 'Modificar'];
-    //this.dataSource = new MatTableDataSource<Producto>(data);
+    this.dataSource = new MatTableDataSource<any>(data);
     this.dataSource.paginator = this.paginator;
   }
 
@@ -74,7 +75,7 @@ export class BOrdenesComponent {
       }
       this.dataSource = items;
 
-      
+      this.dataSource = new MatTableDataSource<any>(this.dataSource);
     });
   }
 
