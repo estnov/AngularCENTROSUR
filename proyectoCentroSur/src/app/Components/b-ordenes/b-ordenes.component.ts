@@ -1,4 +1,4 @@
-import { Component, ViewChild, ChangeDetectorRef  } from '@angular/core';
+import { Component, ViewChild, ChangeDetectorRef, Input  } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ListService } from 'src/app/services/list.service';
@@ -16,6 +16,9 @@ const array: any[]=[]
 
 
 export class BOrdenesComponent {
+
+  element: any;
+@Input() data:any;
   displayedColumns: string[] = ['No. Orden', 'CI. Orden', 'Actividad PM', 'MRU-Security', 'P. Trabajo. Res.', 'Fecha Inicio', 'Canton'
                                 , 'Distrito', 'Calle y No.', 'Modificar'];
   
