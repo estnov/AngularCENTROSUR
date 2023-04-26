@@ -1,6 +1,6 @@
 <div class="searchbar">
   <mat-form-field appearance="outline">
-    <input matInput class="controls" type="text" name="ejecutado" id="ejecutado" [(ngModel)]="search" placeholder="buscar" >
+    <input matInput class="controls" type="text" name="ejecutado" id="ejecutado" [(ngModel)]="search" placeholder="buscar" (input)="filter()">
   </mat-form-field>
   <mat-form-field style="padding-left: 15px;background-color: white;" appearance="outline">
     <mat-select [(ngModel)]="option">
@@ -11,7 +11,7 @@
   </mat-form-field>
 </div>
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table tablePrinc">
+<table mat-table [dataSource]="dataFiltered" class="mat-elevation-z8 demo-table tablePrinc">
     <!-- Position Column -->
     <ng-container matColumnDef="No. Orden" class="block">
       <th mat-header-cell *matHeaderCellDef style="color:black; background-color: rgba(143, 224, 254, 0.723);">No. Orden</th>
@@ -73,6 +73,6 @@
       </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{ 'hidden': shouldHide(row) }" ></tr> 
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"  ></tr> 
   </table> 
   <mat-paginator [pageSizeOptions]="[5, 10, 20, 30]" showFirstLastButtons></mat-paginator>

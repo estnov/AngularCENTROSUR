@@ -25,13 +25,16 @@ export class BOrdenesComponent implements AfterViewInit{
   searchOptions: string[] = ['No. Orden', 'CI. Orden', 'Actividad PM', 'MRU-Security', 'P. Trabajo. Res.', 'Fecha Inicio', 'Canton'
                                 , 'Distrito', 'Calle y No.'];
   
-  //public ordenes: Orden[]=[];
+  
   dataSource:any = array;
   dataFiltered:any = array;
+  subList:any = [];
 
   search:String =""
   option:String = "No. Orden"
 
+
+  load:boolean =false
 
   public tableitems= this.dataSource;
   public pageSlice =this.tableitems.slice(0,5);
@@ -53,12 +56,76 @@ export class BOrdenesComponent implements AfterViewInit{
     this.displayedColumns  = ['No. Orden', 'CI. Orden', 'Actividad PM', 'MRU-Security', 'P. Trabajo. Res.', 'Fecha Inicio', 'Canton'
     , 'Distrito', 'Calle y No.', 'Modificar'];
     this.dataSource = new MatTableDataSource<any>(data);
-    this.dataSource.paginator = this.paginator;
+    this.dataFiltered.paginator = this.paginator;
   }
 
   ngAfterViewInit(): void {
       this.listar
-      this.dataSource.paginator = this.paginator;
+      this.dataFiltered.paginator = this.paginator;
+  }
+
+  filter(){
+    if(!this.load){
+      this.dataFiltered = this.dataSource;
+      this.load = true;
+
+    }  else{
+
+      switch (this.option) {
+        case 'No. Orden':
+          this.dataFiltered = this.dataSource.data.filter((data: { numOrden: string; }) => {
+            return data.numOrden.toLowerCase().includes(this.search.toLowerCase());
+          });
+          console.log(this.dataFiltered)
+          break;
+        case 'CI. Orden':
+          this.dataFiltered = this.dataSource.data.filter((data: { ciOrden: string; }) => {
+            return data.ciOrden.toLowerCase().includes(this.search.toLowerCase());
+          });
+          break;
+        case 'Actividad PM':
+          this.dataFiltered = this.dataSource.data.filter((data: { actividad: string; }) => {
+            return data.actividad.toLowerCase().includes(this.search.toLowerCase());
+          });
+          break;
+        case 'MRU-Security':
+          this.dataFiltered = this.dataSource.data.filter((data: { mru: string; }) => {
+            return data.mru.toLowerCase().includes(this.search.toLowerCase());
+          });
+          break;
+        case 'P. Trabajo. Res.':
+          this.dataFiltered = this.dataSource.data.filter((data: { pTrabajo: string; }) => {
+            return data.pTrabajo.toLowerCase().includes(this.search.toLowerCase());
+          });
+          break;
+        case 'Fecha Inicio':
+          this.dataFiltered = this.dataSource.data.filter((data: { fechaInic: string; }) => {
+            return data.fechaInic.toLowerCase().includes(this.search.toLowerCase());
+          });
+          break;
+        case 'Canton':
+          this.dataFiltered = this.dataSource.data.filter((data: { canton: string; }) => {
+            return data.canton.toLowerCase().includes(this.search.toLowerCase());
+          });
+          break;
+        case 'Distrito':
+          this.dataFiltered = this.dataSource.data.filter((data: { distrito: string; }) => {
+            return data.distrito.toLowerCase().includes(this.search.toLowerCase());
+          });
+          break;
+        case 'Calle y No.':
+          this.dataFiltered = this.dataSource.data.filter((data: { calleNum: string; }) => {
+            return data.calleNum.toLowerCase().includes(this.search.toLowerCase());
+          });
+          break;
+        default:
+          console.log("No se encontro la opcion")
+      }
+
+    }
+    
+    
+
   }
 
   async listar(){
@@ -87,8 +154,8 @@ export class BOrdenesComponent implements AfterViewInit{
         items.push(item);
       }
       this.dataSource = items;
-
-      this.load_data_table_pagination(this.dataSource);
+      this.filter();
+      this.load_data_table_pagination(this.dataFiltered);
     });
   }
 
@@ -112,28 +179,5 @@ export class BOrdenesComponent implements AfterViewInit{
     this.dialog.open(ModificarComponent, dialogConfig);
   }
 
-  shouldHide(data: any): boolean {
-    switch (this.option) {
-      case 'No. Orden':
-        return !data.numOrden.includes(this.search);
-      case 'CI. Orden':
-        return !data.ciOrden.includes(this.search);
-      case 'Actividad PM':
-        return !data.actividad.includes(this.search);
-      case 'MRU-Security':
-        return !data.mru.includes(this.search);
-      case 'P. Trabajo. Res.':
-        return !data.pTrabajo.includes(this.search);
-      case 'Fecha Inicio':
-        return !data.fechaInic.includes(this.search);
-      case 'Canton':
-        return !data.canton.includes(this.search);
-      case 'Distrito':
-        return !data.distrito.includes(this.search);
-      case 'Calle y No.':
-        return !data.calleNum.includes(this.search);
-      default:
-        return true;
-    }
-  }
+
 }
