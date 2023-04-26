@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ListService } from 'src/app/services/list.service';
 import { ModificarComponent } from '../modificar/modificar.component';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 
 const array: any[]=[]
 
@@ -22,6 +23,12 @@ export class BOrdenesComponent {
 
   search:String =""
   option:String = "No. Orden"
+
+  public items: any=[];
+  public tableitems= this.dataSource;
+  public pageSlice =this.tableitems.slice(0,5);
+  pageSize=5;
+  pageEvent!: PageEvent;
   
 
   constructor(private router: Router, private list : ListService, public dialog: MatDialog) {
@@ -31,6 +38,15 @@ export class BOrdenesComponent {
     this.listar();
   }
 
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  load_data_table_pagination(data:any) {
+    this.displayedColumns  = ['No. Orden', 'CI. Orden', 'Actividad PM', 'MRU-Security', 'P. Trabajo. Res.', 'Fecha Inicio', 'Canton'
+    , 'Distrito', 'Calle y No.', 'Modificar'];
+    //this.dataSource = new MatTableDataSource<Producto>(data);
+    this.dataSource.paginator = this.paginator;
+  }
+
   async listar(){
     this.list.list().subscribe(response => {
       const parser = new DOMParser();
@@ -38,7 +54,7 @@ export class BOrdenesComponent {
       const xmlDoc = parser.parseFromString(response, 'text/xml');
 
       // Retrieve the user attributes
-      let items: any=[];
+      let items:any=[];
 
       for (let i = 0; i < xmlDoc.getElementsByTagName('item').length; i++) {
 
@@ -60,6 +76,14 @@ export class BOrdenesComponent {
 
       
     });
+  }
+
+  longValue: number=0;
+  highValue:number=5;
+  public getPaginatorData(event: PageEvent): PageEvent{
+    this.longValue = event.pageIndex = event.pageSize;
+    this.highValue = this.longValue + event.pageSize;
+    return event;
   }
 
   modificar(orden:string){
