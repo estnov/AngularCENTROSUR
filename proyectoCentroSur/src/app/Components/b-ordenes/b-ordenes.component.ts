@@ -55,7 +55,7 @@ export class BOrdenesComponent implements AfterViewInit{
   load_data_table_pagination(data:any) {
     this.displayedColumns  = ['No. Orden', 'CI. Orden', 'Actividad PM', 'MRU-Security', 'P. Trabajo. Res.', 'Fecha Inicio', 'Canton'
     , 'Distrito', 'Calle y No.', 'Modificar'];
-    this.dataSource = new MatTableDataSource<any>(data);
+    this.dataFiltered = new MatTableDataSource<any>(data);
     this.dataFiltered.paginator = this.paginator;
   }
 
@@ -70,7 +70,6 @@ export class BOrdenesComponent implements AfterViewInit{
       this.load = true;
 
     }  else{
-
       switch (this.option) {
         case 'No. Orden':
           this.dataFiltered = this.dataSource.data.filter((data: { numOrden: string; }) => {
@@ -155,6 +154,7 @@ export class BOrdenesComponent implements AfterViewInit{
       }
       this.dataSource = items;
       this.filter();
+      this.dataSource = new MatTableDataSource<any>(this.dataSource);
       this.load_data_table_pagination(this.dataFiltered);
     });
   }
