@@ -1,7 +1,6 @@
 <div class="searchbar">
   <input class="controls" type="text" name="ejecutado" id="ejecutado" [(ngModel)]="search" placeholder="buscar">
-  <mat-form-field>
-    <mat-label>Columna</mat-label>
+  <mat-form-field style="padding-left: 15px;background-color: white;">
     <mat-select [(ngModel)]="option">
       <mat-option *ngFor="let element of displayedColumns" [value]="element">
         {{ element }}

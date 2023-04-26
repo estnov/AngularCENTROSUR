@@ -21,7 +21,7 @@ export class BOrdenesComponent {
   dataSource:any = array;
 
   search:String =""
-  option:String = ""
+  option:String = "No. Orden"
   
 
   constructor(private router: Router, private list : ListService, public dialog: MatDialog) {
