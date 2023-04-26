@@ -120,6 +120,7 @@ export class BOrdenesComponent implements AfterViewInit{
         default:
           console.log("No se encontro la opcion")
       }
+      this.load_data_table_pagination(this.dataFiltered);
 
     }
     
