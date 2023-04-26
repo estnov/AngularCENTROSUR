@@ -1,4 +1,4 @@
-import { Component, ViewChild, ChangeDetectorRef, Input  } from '@angular/core';
+import { Component, ViewChild, ChangeDetectorRef, Input, AfterViewInit  } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ListService } from 'src/app/services/list.service';
@@ -15,7 +15,7 @@ const array: any[]=[]
 })
 
 
-export class BOrdenesComponent {
+export class BOrdenesComponent implements AfterViewInit{
 
   element: any;
 @Input() data:any;
@@ -32,7 +32,7 @@ export class BOrdenesComponent {
   search:String =""
   option:String = "No. Orden"
 
-  public items: any=[];
+
   public tableitems= this.dataSource;
   public pageSlice =this.tableitems.slice(0,5);
   pageSize=5;
@@ -54,6 +54,11 @@ export class BOrdenesComponent {
     , 'Distrito', 'Calle y No.', 'Modificar'];
     this.dataSource = new MatTableDataSource<any>(data);
     this.dataSource.paginator = this.paginator;
+  }
+
+  ngAfterViewInit(): void {
+      this.listar
+      this.dataSource.paginator = this.paginator;
   }
 
   async listar(){
@@ -83,7 +88,7 @@ export class BOrdenesComponent {
       }
       this.dataSource = items;
 
-      this.dataSource = new MatTableDataSource<any>(this.dataSource);
+      this.load_data_table_pagination(this.dataSource);
     });
   }
 
