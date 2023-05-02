@@ -17,15 +17,34 @@
             </p>
             <p>
                 <label style="color:black">Contrato</label>
-                <input class="controls" type="text" name="contrato" id="contrato" [(ngModel)]="contrato">
-            </p>
-            <p>
-                <label style="color:black">Cod. Cierre</label>
-                <input class="controls" type="text" name="cierre" id="cierre" [(ngModel)]="cod_cierre">
+                <mat-form-field appearance="fill">
+                    <mat-select (selectionChange)="onContratoSelected($event)">
+                      <mat-option *ngFor="let codes of contratos" [value]="codes.codContrato" >
+                        <span style="font-size: 14px;font-weight: bold;">{{codes.codContrato}}</span> - <span style="font-size: 12px;">{{codes.descripcion}}</span>
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
             </p>
             <p>
                 <label style="color:black">Cod. Grupo</label>
-                <input class="controls" type="text" name="grupo" id="grupo" [(ngModel)]="cod_grupo">
+                <mat-form-field appearance="fill">
+                    <mat-select (selectionChange)="onCodigoGrupoSelected($event)">
+                      <mat-option *ngFor="let codes of codigosGrupo" [value]="codes.codGrupo" >
+                        <span style="font-size: 14px;font-weight: bold;">{{codes.codGrupo}}</span> - <span style="font-size: 12px;">{{codes.descripcion}}</span>
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  
+            </p>
+            <p>
+                <label style="color:black">Cod. Cierre</label>
+                <mat-form-field appearance="fill">
+                    <mat-select (selectionChange)="onCodigoCierreSelected($event)" [disabled]="inhabilitarCodCierre">
+                      <mat-option *ngFor="let codes of codigosCierre" [value]="codes.code" >
+                        <span style="font-size: 14px;font-weight: bold;">{{codes.code}}</span> - <span style="font-size: 12px;">{{codes.descripcion}}</span>
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
             </p>
             <p>
                 <label style="color:black">Ejecutado Por:</label>

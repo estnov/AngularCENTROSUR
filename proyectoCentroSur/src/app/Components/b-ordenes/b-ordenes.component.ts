@@ -168,13 +168,14 @@ export class BOrdenesComponent implements AfterViewInit{
     return event;
   }
 
-  modificar(orden:string){
+  modificar(orden:string, ciOrden:string){
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "80%";
     localStorage.setItem('orden', orden);
+    localStorage.setItem('ciOrden', ciOrden);
 
 
     this.dialog.open(ModificarComponent, dialogConfig);

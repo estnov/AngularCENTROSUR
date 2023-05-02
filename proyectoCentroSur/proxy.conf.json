@@ -17,5 +17,23 @@
       "secure": true,
       "changeOrigin": true,
       "loglevel": "debug"
+    },
+    "/listarCodGrupo": {
+      "target": "http://p8sapisu01r.redenergia.gob.ec:8010/sap/bc/srt/rfc/sap/zws_query_qmgrp/310/zws_query_qmgrp/zws_query_qmgrp",
+      "secure": true,
+      "changeOrigin": true,
+      "loglevel": "debug"
+    },
+    "/listarCodCierre": {
+      "target": "http://p8sapisu01r.redenergia.gob.ec:8010/sap/bc/srt/rfc/sap/zws_query_qmcod/310/zws_query_qmcod/zws_query_qmcod",
+      "secure": true,
+      "changeOrigin": true,
+      "loglevel": "debug"
+    },
+    "/listarContratos": {
+      "target": "http://p8sapisu01r.redenergia.gob.ec:8010/sap/bc/srt/rfc/sap/zws_get_contrato/310/zws_get_contrato/zws_get_contrato",
+      "secure": true,
+      "changeOrigin": true,
+      "loglevel": "debug"
     }
   }

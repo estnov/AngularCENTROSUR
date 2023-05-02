@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -56,4 +57,83 @@ export class ModifyService {
       }
     );
   }
+
+
+
+  getCodGrupo(ciOrden:string): Observable<any>{
+    const soapUrl = 'listarCodGrupo/post/json';
+    const xml = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:sap-com:document:sap:rfc:functions">
+    <soapenv:Header/>
+    <soapenv:Body>
+       <urn:ZWMMF_QUERY_QMGRP>
+          <I_AUART>`+ciOrden+`</I_AUART>
+          <!--Optional:-->
+          <T_QMGRP>
+             <item>
+             </item>
+          </T_QMGRP>
+       </urn:ZWMMF_QUERY_QMGRP>
+    </soapenv:Body>
+ </soapenv:Envelope>`;
+
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'text/xml',
+      'charset': 'utf-8'
+    });
+
+    return (this.http.post(soapUrl, xml, { headers: headers, responseType: 'text' }));
+
+  }
+
+  getCodCierre(ciOrden:string, codGrupo:string): Observable<any>{
+    const soapUrl = 'listarCodCierre/post/json';
+    const xml = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:sap-com:document:sap:rfc:functions">
+    <soapenv:Header/>
+    <soapenv:Body>
+       <urn:ZWMMF_QUERY_QMCOD>
+          <CODEGRUPPE>`+codGrupo+`</CODEGRUPPE>
+          <I_AUART>`+ciOrden+`</I_AUART>
+          <T_QMCOD>
+          </T_QMCOD>
+       </urn:ZWMMF_QUERY_QMCOD>
+    </soapenv:Body>
+ </soapenv:Envelope>`;
+
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'text/xml',
+      'charset': 'utf-8'
+    });
+
+    return (this.http.post(soapUrl, xml, { headers: headers, responseType: 'text' }));
+
+  }
+
+  getContrato(numOrden: string): Observable<any>{
+    const soapUrl = 'listarContratos/post/json';
+    const xml = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:sap-com:document:sap:rfc:functions">
+    <soapenv:Header/>
+    <soapenv:Body>
+       <urn:ZISU_GET_CONTRATO>
+          <ORDEN>`+numOrden+`</ORDEN>
+          <RESPUESTA>
+             <item>
+             </item>
+          </RESPUESTA>
+       </urn:ZISU_GET_CONTRATO>
+    </soapenv:Body>
+ </soapenv:Envelope>`;
+
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'text/xml',
+      'charset': 'utf-8'
+    });
+
+    return (this.http.post(soapUrl, xml, { headers: headers, responseType: 'text' }));
+
+  }
+
+
 }
