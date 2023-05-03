@@ -12,9 +12,10 @@
                 <input class="controls" type="text" name="orden" id="orden" disabled [(ngModel)]="orden" >
             </p>
             <p>
-                <label style="color:black">Actividad</label>
-                <input class="controls" type="text" name="actividad" id="actividad" [(ngModel)]="actividad">
+                <label style="color:black">Ejecutado Por:</label>
+                <input class="controls" type="text" name="ejecutado" id="ejecutado" [(ngModel)]="ejecutado_por">
             </p>
+            
             <p>
                 <label style="color:black">Contrato</label>
                 <mat-form-field appearance="fill">
@@ -37,6 +38,17 @@
                   
             </p>
             <p>
+                <label style="color:black">Actividad: </label>
+                <mat-form-field appearance="fill">
+                    <mat-select (selectionChange)="onActividadSelected($event)" [disabled]="inhabilitarActividades">
+                      <mat-option *ngFor="let codes of actividades" [value]="codes.codActividad" >
+                        <span style="font-size: 14px;font-weight: bold;">{{codes.codActividad}}</span> - <span style="font-size: 12px;">{{codes.descripcion}}</span>
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </p>
+
+            <p>
                 <label style="color:black">Cod. Cierre</label>
                 <mat-form-field appearance="fill">
                     <mat-select (selectionChange)="onCodigoCierreSelected($event)" [disabled]="inhabilitarCodCierre">
@@ -46,10 +58,7 @@
                     </mat-select>
                   </mat-form-field>
             </p>
-            <p>
-                <label style="color:black">Ejecutado Por:</label>
-                <input class="controls" type="text" name="ejecutado" id="ejecutado" [(ngModel)]="ejecutado_por">
-            </p>
+
             <p>
                 <label style="color:black">Fecha Ejecución</label>
                 <mat-form-field>
@@ -57,6 +66,7 @@
                 </mat-form-field>
                 <mat-datepicker #picker></mat-datepicker>
             </p>
+
             <p>
                 <label style="color:black">Hora Inicio</label>
                 <!--<input class="controls" type="text" name="inicio" id="inicio" [(ngModel)]="hora_inicio">-->

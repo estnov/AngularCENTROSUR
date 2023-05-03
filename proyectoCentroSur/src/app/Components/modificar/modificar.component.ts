@@ -27,8 +27,10 @@ export class ModificarComponent {
   public codigosGrupo:any = [];
   public codigosCierre:any = [];
   public contratos:any = [];
+  public actividades:any = [];
 
   public inhabilitarCodCierre: boolean = true;
+  public inhabilitarActividades: boolean = true;
 
   public orden = localStorage.getItem('orden');
 
@@ -131,6 +133,26 @@ export class ModificarComponent {
       }
     });
   }
+
+  listActividades(){
+    this.modify.getActividad(this.contrato).subscribe(response => {
+      const parser = new DOMParser();
+
+      const xmlDoc = parser.parseFromString(response, 'text/xml');
+
+      for (let i = 0; i < xmlDoc.getElementsByTagName('item').length; i++) {
+
+        const item: any = {
+          codActividad: xmlDoc.getElementsByTagName('item')[i].getElementsByTagName('SRVPOS')[0].textContent,
+          descripcion: xmlDoc.getElementsByTagName('item')[i].getElementsByTagName('KTEXT1')[0].textContent
+        };
+
+        this.actividades.push(item);
+      }
+    });
+  }
+
+
   onCodigoGrupoSelected(event: any) {
     console.log(event.value);
     localStorage.setItem('codGrupo', event.value);
@@ -148,5 +170,12 @@ export class ModificarComponent {
     console.log(event.value);
     localStorage.setItem('contrato', event.value);
     this.contrato = event.value;
+    this.inhabilitarActividades = false;
+    this.listActividades();
+  }
+  onActividadSelected(event: any) {
+    console.log(event.value);
+    localStorage.setItem('actividad', event.value);
+    this.actividad = event.value;
   }
 }

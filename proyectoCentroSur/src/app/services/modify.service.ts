@@ -135,5 +135,30 @@ export class ModifyService {
 
   }
 
+  getActividad(contrato: string): Observable<any>{
+    const soapUrl = 'listarActividades/post/json';
+    const xml = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:sap-com:document:sap:rfc:functions">
+    <soapenv:Header/>
+    <soapenv:Body>
+       <urn:ZWMMF_QUERY_NUMSERVICIO>
+          <!--Optional:-->
+          <EBELN>`+contrato+`</EBELN>
+          <EBELP>0010</EBELP>
+          <SERVICES>
+             <item>
+             </item>
+          </SERVICES>
+       </urn:ZWMMF_QUERY_NUMSERVICIO>
+    </soapenv:Body>
+ </soapenv:Envelope>`;
 
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'text/xml',
+      'charset': 'utf-8'
+    });
+
+    return (this.http.post(soapUrl, xml, { headers: headers, responseType: 'text' }));
+
+  }
 }

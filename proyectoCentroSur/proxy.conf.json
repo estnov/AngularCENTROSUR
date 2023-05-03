@@ -35,5 +35,11 @@
       "secure": true,
       "changeOrigin": true,
       "loglevel": "debug"
+    },
+    "/listarActividades": {
+      "target": "http://p8sapisu01r.redenergia.gob.ec:8010/sap/bc/srt/rfc/sap/zws_query_numservicio/310/zws_query_numservicio/zws_query_numservicio",
+      "secure": true,
+      "changeOrigin": true,
+      "loglevel": "debug"
     }
   }
