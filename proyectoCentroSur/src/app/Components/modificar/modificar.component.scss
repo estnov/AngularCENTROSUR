@@ -14,8 +14,6 @@
         .formu > div {
             padding: 20px;
         }
-
-        
         .controls {
             padding: 10px;
             border-radius: 4px;
@@ -27,6 +25,9 @@
             color: black;
             width: 10px;
         
+        }
+        .labels {
+            width: 15%;
         }
 
     }
@@ -41,4 +42,9 @@
     font-size: 18px;
     color: black;
 
+}
+
+.labels {
+    width: 135px;
+    white-space:nowrap;
 }
