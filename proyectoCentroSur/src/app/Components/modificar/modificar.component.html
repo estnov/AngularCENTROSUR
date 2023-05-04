@@ -8,7 +8,7 @@
     <mat-dialog-content>
         <div class="formu" style="background-color: white; margin: 15px; padding: 15px;">
             <p>
-                <label style="color:black" class="labels">No. Orden</label>
+                <label style="color:black" class="labels">No. Orden:</label>
                 
                 <input class="controls" type="text" name="orden" id="orden" disabled [(ngModel)]="orden" >
             </p>
@@ -18,7 +18,7 @@
             </p>
             
             <p>
-                <label style="color:black" class="labels">Contrato</label>
+                <label style="color:black" class="labels">Contrato:</label>
                 <mat-form-field appearance="fill">
                     <mat-select (selectionChange)="onContratoSelected($event)">
                       <mat-option *ngFor="let codes of contratos" [value]="codes.codContrato" >
@@ -28,7 +28,7 @@
                   </mat-form-field>
             </p>
             <p>
-                <label style="color:black" class="labels">Cod. Grupo</label>
+                <label style="color:black" class="labels">Cod. Grupo:</label>
                 <mat-form-field appearance="fill">
                     <mat-select (selectionChange)="onCodigoGrupoSelected($event)">
                       <mat-option *ngFor="let codes of codigosGrupo" [value]="codes.codGrupo" >
@@ -50,7 +50,7 @@
             </p>
 
             <p>
-                <label style="color:black" class="labels">Cod. Cierre</label>
+                <label style="color:black" class="labels">Cod. Cierre:</label>
                 <mat-form-field appearance="fill">
                     <mat-select (selectionChange)="onCodigoCierreSelected($event)" [disabled]="inhabilitarCodCierre">
                       <mat-option *ngFor="let codes of codigosCierre" [value]="codes.code" >
@@ -61,7 +61,7 @@
             </p>
 
             <p>
-                <label style="color:black" class="labels">Fecha Ejecución</label>
+                <label style="color:black" class="labels">Fecha Ejecución:</label>
                 <mat-form-field>
                     <input matInput placeholder="Fecha Ejecucion" [matDatepicker]="picker" (focus)="picker.open()" readonly [(ngModel)]="dateStart_selected" max="{{date_current}}" name="dateStart">
                 </mat-form-field>
@@ -69,17 +69,17 @@
             </p>
 
             <p>
-                <label style="color:black" class="labels">Hora Inicio</label>
+                <label style="color:black" class="labels">Hora Inicio:</label>
                 <!--<input class="controls" type="text" name="inicio" id="inicio" [(ngModel)]="hora_inicio">-->
                 <input type="time" id="appt" name="appt" min="00:00" max="23:59" required [(ngModel)]="hora_inicio">
             </p>
             <p>
-                <label style="color:black" class="labels">Hora Finalización</label>
+                <label style="color:black" class="labels">Hora Finalización:</label>
                 <!--<input class="controls" type="text" name="fin" id="fin" [(ngModel)]="hora_fin">-->
                 <input type="time" id="appt" name="appt" min="00:00" max="23:59" required [(ngModel)]="hora_fin">
             </p>
             <p>
-                <label style="color:black" class="labels">Ingresado por</label>
+                <label style="color:black" class="labels">Ingresado por:</label>
                 <input class="controls" type="text" name="ingresado" id="ingresado" [(ngModel)]="ingresado">
             </p>
             
