@@ -3,6 +3,13 @@
     color:black;
 }
 
+.demo-div {
+    width:100%;
+    overflow: auto;
+    overflow-x: scroll;
+    padding: 10px;
+}
+
 .searchbar{
     text-align: center;
 }
@@ -11,12 +18,13 @@
     border-bottom: 1px solid transparent;
     border-top: 1px solid transparent;
     cursor: pointer;
-    color:black
+    color:black;
 }
   
 .mat-mdc-row:hover .mat-mdc-cell {
     border-color: currentColor;
 }
+
   
 .demo-row-is-clicked {
     font-weight: bold;
