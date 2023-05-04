@@ -1,10 +1,37 @@
 .formu{
+    padding: 3.75%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 100%;
+    grid-column-gap: 0;
+    grid-row-gap: 20px;
 }
+@media only screen and (min-width: 940px) {
+        .formu {
+            grid-template-columns: 47.5% 47.5%;
+            grid-column-gap: 5%;
+            grid-row-gap: 40px;
+        }
+        .formu > div {
+            padding: 20px;
+        }
+
+        
+        .controls {
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            border: none;
+            border-bottom: 1px solid #1f53c5;
+            font-family: 'calibri';
+            font-size: 18px;
+            color: black;
+            width: 10px;
+        
+        }
+
+    }
 .controls {
-    width: 350px;
-    //background: #24303c;
+    width: 75%;
     padding: 10px;
     border-radius: 4px;
     margin-bottom: 16px;
