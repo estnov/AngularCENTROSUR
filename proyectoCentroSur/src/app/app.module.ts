@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/login/login.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap'; 
+import {MatToolbarModule} from '@angular/material/toolbar'; 
+import {MatIconModule} from '@angular/material/icon'
 
 import { FormsModule } from '@angular/forms';
 
@@ -22,6 +24,7 @@ import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import {MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,10 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatNativeDateModule,
     MatSnackBarModule,
     MatSelectModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
   bootstrap: [AppComponent]

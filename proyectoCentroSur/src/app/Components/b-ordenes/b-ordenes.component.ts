@@ -153,6 +153,7 @@ export class BOrdenesComponent implements AfterViewInit{
 
         items.push(item);
       }
+      console.log(items.length);
       this.dataSource = items;
       this.filter();
       this.dataSource = new MatTableDataSource<any>(this.dataSource);
