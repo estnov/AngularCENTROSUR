@@ -12,6 +12,12 @@
       "changeOrigin": true,
       "loglevel": "debug"
     },
+    "/finalizadas": {
+      "target": "http://p8sapisu01r.redenergia.gob.ec:8010/sap/bc/srt/rfc/sap/zws_get_ordenes_ctec/310/zws_get_ordenes_ctec/zws_get_ordctec",
+      "secure": true,
+      "changeOrigin": true,
+      "loglevel": "debug"
+    },
     "/modificar": {
       "target": "http://p8sapisu01r.redenergia.gob.ec:8010/sap/bc/srt/rfc/sap/zws_ws_cot/310/zws_ws_cot/zws_ws_cot",
       "secure": true,

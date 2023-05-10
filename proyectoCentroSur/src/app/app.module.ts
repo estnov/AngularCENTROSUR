@@ -25,13 +25,15 @@ import {MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatCardModule} from '@angular/material/card';
+import { ListarCompletosComponent } from './Components/listar-completos/listar-completos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     BOrdenesComponent,
-    ModificarComponent
+    ModificarComponent,
+    ListarCompletosComponent
   ],
   imports: [
     BrowserModule,

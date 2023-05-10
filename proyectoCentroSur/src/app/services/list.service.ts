@@ -28,11 +28,15 @@ export class ListService {
 
     const headers = new HttpHeaders({
       'Content-Type': 'text/xml',
-      'charset': 'utf-8'
+      'charset': 'utf-8',
+      'Authorization': 'Basic ' + btoa('jperalta' + ':' + 'Franjua.4095')
     });
 
     return (this.http.post(soapUrl, xml, { headers: headers, responseType: 'text' }));
 
   }
+
+
+  
 
 }

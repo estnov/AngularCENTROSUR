@@ -83,8 +83,8 @@
 <mat-toolbar>
   <mat-toolbar-row style="height: fit-content; background-color: white;">
     <mat-card-actions>
-      <button mat-button>
-        <mat-label class="listaOrdenes">Ordenes abiertas</mat-label>
+      <button mat-button (click)="listarCompletos()">
+        <mat-label class="listaOrdenes">Ordenes cerradas</mat-label>
         <mat-icon  title="Ordenes abiertas">assignment</mat-icon>
       </button>
     </mat-card-actions>

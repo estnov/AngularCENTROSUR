@@ -5,6 +5,7 @@ import { ListService } from 'src/app/services/list.service';
 import { ModificarComponent } from '../modificar/modificar.component';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { ListarCompletosComponent } from '../listar-completos/listar-completos.component';
 
 const array: any[]=[]
 
@@ -182,5 +183,14 @@ export class BOrdenesComponent implements AfterViewInit{
     this.dialog.open(ModificarComponent, dialogConfig);
   }
 
+  listarCompletos(){
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "90%";
+
+    this.dialog.open(ListarCompletosComponent, dialogConfig);
+
+  }
 
 }
