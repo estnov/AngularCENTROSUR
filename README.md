@@ -1,2 +1,2 @@
 # Angular CENTROSUR
-### Autores:
+### Autores: Esteban Novillo Quinde, Ronald 
